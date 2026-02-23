@@ -39,3 +39,39 @@ header {
     font-weight: bold;
     margin-top: 20px;
 }
+
+/* 1. Make the container fill the whole screen */
+.slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind your text */
+    overflow: hidden;
+}
+
+/* 2. Style the individual slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Start invisible */
+    animation: fadeSlider 15s infinite; /* 15 seconds total loop */
+}
+
+/* 3. Time each slide to show up at different moments */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+
+/* 4. The "Fade" Logic */
+@keyframes fadeSlider {
+    0% { opacity: 0; }
+    10% { opacity: 0.4; } /* Low opacity so you can still read text */
+    33% { opacity: 0.4; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
